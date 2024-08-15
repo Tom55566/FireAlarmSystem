@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>一氧化碳濃度</h2>
+    <br/><hr/>
+    <button id="CO1">查詢一氧化碳濃度</button><br/><br/>
+    <div id="demo"></div>
+    
+    <script>
+
+
+
+    document.getElementById("CO1").addEventListener("click", () =>{load();
+        setTimeout(()=>{
+            refresh();
+        },1000)
+    });
+
+    function refresh(){
+    setInterval(load , 1000);
+    }
+
+    function load(){
+        $.ajax({
+            url:"http://192.168.3.130:8181/watch/CO1",
+            type:"GET",
+            success:function(data){
+                showall(data);
+                }
+        });
+    }
+
+
+        function showall(emps){
+            let txt ="<table border='1' id='table'><tr><th>有無超標<th>數值";
+                for(let i =0;i<emps.length;i++){
+            txt+="<tr id=c"+i+"><td>"+emps[i].voice+ "</td>";
+            txt+="<td>"+emps[i].number +"</td>";
+        }txt += "</table>"
+        document.getElementById("demo").innerHTML=txt;
+        }
+
+
+    </script>
+    </body>
