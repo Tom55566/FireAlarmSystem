@@ -9,42 +9,82 @@
 <body>
     <h2>一氧化碳濃度</h2>
     <br/><hr/>
-    <button id="CO1">查詢一氧化碳濃度</button><br/><br/>
-    <div id="demo"></div>
+    <div id="co1No"></div>
+    <div id="tempNo"></div>
+    <img id="photo" src="./image_normal.jpg"></img>
     
     <script>
 
 
+    const timestamp = new Date().getTime();
+    
 
-    document.getElementById("CO1").addEventListener("click", () =>{load();
+    document.addEventListener("DOMContentLoaded", () =>{
+        loadCoNumber();
+        loadtempNumber();
         setTimeout(()=>{
             refresh();
         },1000)
     });
 
+
     function refresh(){
-    setInterval(load , 1000);
+    setInterval(loadCoNumber , 1000);
+    setInterval(loadtempNumber , 1000);
+    setInterval(updateflag ,1050);
     }
 
-    function load(){
+    function loadCoNumber(){
         $.ajax({
-            url:"http://192.168.3.130:8181/watch/CO1",
+            url:"http://192.168.137.10:8181/watch/CO1",
             type:"GET",
             success:function(data){
-                showall(data);
+                showall(data,"co1No");
+                }
+        });
+    }
+
+    function loadtempNumber(){
+        $.ajax({
+            url:"http://192.168.137.10:8181/watch/temp",
+            type:"GET",
+            success:function(data){
+                showall(data,"tempNo");
+                }
+        });
+    }
+
+    function showall(emps,where){
+            let txt ="<table border='1' id='table'><tr><th>數值";
+                for(let i =0;i<emps.length;i++){
+            txt+="<td id="+where+"no >"+emps[i].number +"</td>";
+        }txt += "</table></br>"
+        document.getElementById(where).innerHTML=txt
+        }
+
+
+    function updateflag(){
+        $.ajax({
+            url:"http://192.168.137.10:8181/watch/camera",
+            type:"GET",
+            success:function(data){
+                updateImage(data)
                 }
         });
     }
 
 
-        function showall(emps){
-            let txt ="<table border='1' id='table'><tr><th>有無超標<th>數值";
-                for(let i =0;i<emps.length;i++){
-            txt+="<tr id=c"+i+"><td>"+emps[i].voice+ "</td>";
-            txt+="<td>"+emps[i].number +"</td>";
-        }txt += "</table>"
-        document.getElementById("demo").innerHTML=txt;
+
+
+        function updateImage(data){
+        const statusImage = document.getElementById("photo");
+        if (data[0].camera == 0) {
+            statusImage.src = `./image_normal.jpg?${timestamp}`; 
+        } else {
+            statusImage.src = `./alert_image.jpg?${timestamp}`; 
         }
+    }
+
 
 
     </script>
