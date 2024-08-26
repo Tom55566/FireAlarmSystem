@@ -47,3 +47,7 @@ app.get('/watch/temp',(req,res)=>{
 app.get('/watch/camera',(req,res)=>{
     res.send(jsoncamera);
 });
+
+app.get('/alert_image.jpg',(req,res) => {
+    res.sendFile(path.join(__dirname,'public','alert_image.jpg'))
+});

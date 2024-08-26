@@ -19,9 +19,7 @@ void camera_capture() {
     }
 }
 
-//"ffmpeg -f video4linux2 -i /dev/video0 -s 640x480 -vframes 1 -loglevel quiet -y ../excute/node_js/public/alert_image.jpg"
-
-int dht11_write(void) {
+int dht22_write(void) {
     FILE *file;
     file = fopen("../excute/node_js/Data/temp_output.csv", "w");
     if(file == NULL)
@@ -79,10 +77,9 @@ int main() {
     while (1) {
         tempz = shm_flag[0];
         coVal = shm_flag[1];
-        dht11_write();
+        dht22_write();
         MQ7_write();
         if (shm_flag[2]) {  // temperature > 45 & coVal > 60
-            sleep(2);  // 1s
             camera_capture();
             printf("Camera capture! flag = %d\n", shm_flag[2]);
             camera_write(1);

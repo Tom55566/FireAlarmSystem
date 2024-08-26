@@ -1,1 +1,0 @@
-cmd_/home/pi/MEME4925Project/module/SR04/red_yellow_green.ko := ld -r  -EL  --build-id=sha1  -T scripts/module.lds -o /home/pi/MEME4925Project/module/SR04/red_yellow_green.ko /home/pi/MEME4925Project/module/SR04/red_yellow_green.o /home/pi/MEME4925Project/module/SR04/red_yellow_green.mod.o;  true

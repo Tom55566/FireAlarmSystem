@@ -1,1 +1,0 @@
-cmd_/home/pi/MEME4925Project/module/SR04/sensor/modules.order := {   echo /home/pi/MEME4925Project/module/SR04/sensor/sensor_driver.ko; :; } | awk '!x[$$0]++' - > /home/pi/MEME4925Project/module/SR04/sensor/modules.order
