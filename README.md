@@ -97,7 +97,6 @@
 - **v1.0**
   - 初始版本：設置系統架構並完成基本的環境配置。
 
-<<<<<<< HEAD
 ## 本系統與asd1999fff共同協作
 ## asd1999fff:https://github.com/asd1999fff/MEME49_project.git
 
