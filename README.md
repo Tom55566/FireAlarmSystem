@@ -81,7 +81,7 @@
    sudo bash loadandRun.sh
    ```
    - 若要關閉系統，請按下Ctrl + C
-   - 
+     
    - 若要卸載驅動程式，請執行以下指令：
    ```sh
    sudo bash unloadDriver.sh
