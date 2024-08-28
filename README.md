@@ -51,6 +51,7 @@
      sudo raspi-config
      ```
      選擇 "Interface Options" 然後啟用 Camera。
+     
    - 更新系統軟體包
      ```sh
      sudo sudo apt update
