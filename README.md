@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/22b5e236-0eeb-4b1a-8d58-68422a7b3cad)# 火災警報系統
+# 火災警報系統
 
 ## 目錄
 1. [專案簡介](#專案簡介)
