@@ -57,15 +57,18 @@
      sudo sudo apt update
      sudo sudo apt upgrade
      ```
+     
    - 安裝 ffmpeg
      ```sh
      sudo apt install ffmpeg
      ```
+     
    - 安裝 nvm
      ```sh
      wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
      source ~/.bashrc
      ```
+     
    - 安裝 node.js
      ```sh
      nvm install --lts
@@ -75,25 +78,32 @@
 ## 使用說明
 1. **啟動系統**：
    - 請先進入專案內的module目錄，請執行以下指令來編譯驅動程式：
+   ```sh
    make
+   ```
+   
    - 再來回到進入專案目錄，請執行以下指令來啟動系統：
    ```sh
    sudo bash loadandRun.sh
    ```
+   
    - 若要關閉系統，請按下Ctrl + C
      
    - 若要卸載驅動程式，請執行以下指令：
    ```sh
    sudo bash unloadDriver.sh
    ```
+   
    - 若要單獨安裝驅動程式，請執行以下指令：
    ```sh
    sudo bash loadDriver.sh
    ```
+   
    - 若要單獨啟動程式，請執行以下指令：
    ```sh
    sudo bash run.sh
    ```
+   
    - 系統將開始監控環境中的溫度與一氧化碳濃度，並根據設置觸發警報。
    
 2. **啟動伺服器**：
