@@ -108,10 +108,10 @@
    
 2. **啟動伺服器**：
  - 請先進入專案內的excute目錄，請執行以下指令來啟動Node.js：
- ```sh
- sudo nvm use 18.15.0
- sudo ./server.js
- ```
+    ```sh
+    sudo nvm use 18.15.0
+    sudo ./server.js
+    ```
   
 3. **遠程監控**：
    - 開啟瀏覽器並訪問伺服器上的指定 URL，即可查看實時影像。
