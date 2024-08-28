@@ -39,7 +39,7 @@
    - 5MP 樹莓派相機(OV5647)
   
 2.  **設備連接**：
-   - 請參照設備附圖
+   - 請參照附圖
   
 3. **系統建置**：
    - 系統版本: Linux raspberrypi 5.10.103-v7l
@@ -47,14 +47,29 @@
 
 4. **軟體安裝**：
    - 啟用樹莓派攝影機：
-     ```bash
+     ```sh
      sudo raspi-config
      ```
      選擇 "Interface Options" 然後啟用 Camera。
+   - 更新系統軟體包
+     ```sh
+     sudo sudo apt update
+     sudo sudo apt upgrade
+     ```
    - 安裝 ffmpeg
+     ```sh
+     sudo apt install ffmpeg
+     ```
    - 安裝 nvm
+     ```sh
+     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+     source ~/.bashrc
+     ```
    - 安裝 node.js
-
+     ```sh
+     nvm install --lts
+     nvm install 18.15.0
+     ```
 
 ## 使用說明
 1. **啟動系統**：
@@ -71,11 +86,12 @@
    sudo bash run.sh
    - 系統將開始監控環境中的溫度與一氧化碳濃度，並根據設置觸發警報。
    
-
 2. **啟動伺服器**：
  - 請先進入專案內的excute目錄，請執行以下指令來啟動Node.js：
+ ```sh
  sudo nvm use 18.15.0
  sudo ./server.js
+ ```
   
 3. **遠程監控**：
    - 開啟瀏覽器並訪問伺服器上的指定 URL，即可查看實時影像。
